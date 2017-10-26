@@ -1,8 +1,9 @@
+				{fn_print_r($product['header_features'])}
                 {fn_print_r($product['header_features'][4]['variant'])}
             	{assign var="material" value=$product['header_features'][4]['variant']}
             	{fn_print_r($material)}
             	{fn_print_r($product['header_features'][4]['suffix'])}
-            	{assign var="material_name" value=$product['header_features'][4]['suffix']}
+            	{assign var="material_name" value=$product['header_features'][2]['suffix']}
             	{fn_print_r($product['header_features'][2]['value_int'])}
             	{assign var="area" value=$product['header_features'][2]['value_int']}
             	{fn_print_r($area)}
