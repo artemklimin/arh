@@ -1,4 +1,5 @@
-				{fn_print_r($product['header_features'])}
+				{*fn_print_r($product['header_features'])*}
+				{*fn_print_r($product['product_features'])*}
 
                 {*fn_print_r($product['header_features'][4]['variants'][13]['variant'])*}
             	{assign var="material_karkas" value=$product['header_features'][4]['variants'][13]['variant']}
@@ -48,15 +49,15 @@
             	{*fn_print_r($summ_kirpich)*}
 
 				<div class="ty-product-block__note">
-					<a class="type-block" href="#karkas">
+					<a class="type-block" href="#content_product_tab_9">
                     	<span class="var-header">{$materials['karkas'][1]}</span>
                     	<span class="var-body">{$summ_karkas|@debug_print_var}</span>
                     </a>
-					<a class="type-block" href="#gazobeton">
+					<a class="type-block" href="#content_product_tab_10">
                     	<span class="var-header">{$materials['gazobeton'][1]}</span>
                     	<span class="var-body">{$summ_gazobeton|@debug_print_var}</span>
                     </a>
-                    <a class="type-block" href="#kirpich">
+                    <a class="type-block" href="#content_product_tab_11">
                     	<span class="var-header">{$materials['kirpich'][1]}</span>
                     	<span class="var-body">{$summ_kirpich|@debug_print_var}</span>
                     </a>
