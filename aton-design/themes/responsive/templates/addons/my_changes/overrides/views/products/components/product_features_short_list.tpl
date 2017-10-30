@@ -29,10 +29,12 @@
 
 {if $features}
     {strip}
-        {if !$no_container}<div class="ty-features-list eeeeeee">{/if}
+        {if !$no_container}<div class="ty-features-list">{/if}
+            {$dop = 0}
             {foreach from=$features name=features_list item=feature}
+                <div class="list-element dop{$dop++}">
                 {if $feature.feature_type == "ProductFeatures::DATE"|enum || $feature.feature_type == "ProductFeatures::NUMBER_FIELD"|enum || $feature.feature_type == "ProductFeatures::NUMBER_SELECTBOX"|enum}
-                    {$feature.description nofilter}: 
+                    <div class="list-element__title">{$feature.description nofilter}: </div>
                 {/if}
 
                 {if $feature_image && $feature.variants[$feature.variant_id].image_pairs}
@@ -41,8 +43,9 @@
                         {include file="common/image.tpl" image_width=$image_size images=$feature.variants[$feature.variant_id].image_pairs no_ids=true}
                     </a>
                 {else}
-                    {feature_value feature=$feature}{if !$smarty.foreach.features_list.last}, {/if}
+                    <div class="list-element__body">{feature_value feature=$feature}{if !$smarty.foreach.features_list.last}, {/if}</div>
                 {/if}
+                </div>
             {/foreach}
         {if !$no_container}</div>{/if}
     {/strip}
