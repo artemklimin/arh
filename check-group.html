@@ -1,0 +1,64 @@
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title></title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"></script>
+
+    <script type="text/javascript">
+
+        window.onload=function(){
+
+let radios = document.querySelectorAll('.js-checkgroup'),
+    checks = document.querySelectorAll('.js-checkitem');
+    
+[...radios].forEach(radio => {
+  radio.addEventListener('change', event => {
+    let target = event.target,
+        theme = target.dataset.check
+    
+    if (!theme) {
+      return
+    }
+    [...checks].forEach(chk => {
+      if(chk.classList.contains(theme)) {
+        chk.checked = true
+      } else {
+        chk.checked = false
+      }
+    })
+  })
+})
+
+
+        }
+
+</script>
+
+</head>
+<body>
+  <div class="groups">
+  <h2>Группы:</h2>
+
+  <label><input class="js-checkgroup" data-check="drama" type="radio" name="theme">Драма</label>
+  <label><input class="js-checkgroup" data-check="comedy" type="radio" name="theme">Комедия</label>
+  <label><input class="js-checkgroup" data-check="action" type="radio" name="theme">Экшн</label>
+</div>
+
+
+
+<div class="vars">
+  <h2>Список вариантов:</h2>
+
+  <label><input class="js-checkitem drama comedy" type="checkbox"> Фильм 1</label>
+  <label><input class="js-checkitem comedy" type="checkbox"> Фильм 2</label>
+  <label><input class="js-checkitem drama" type="checkbox"> Фильм 3</label>
+  <label><input class="js-checkitem action" type="checkbox"> Фильм 4</label>
+  <label> <input class="js-checkitem action drama comedy" type="checkbox"> Фильм 5</label>
+  <label><input class="js-checkitem action drama" type="checkbox"> Фильм 6</label>
+</div>
+
+
+</body></html>
