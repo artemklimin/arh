@@ -1,64 +1,221 @@
-<html><head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title></title>
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="googlebot" content="noindex, nofollow">
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title></title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
 
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"></script>
 
     <script type="text/javascript">
+        window.onload = function() {
 
-        window.onload=function(){
+            let radios = document.querySelectorAll('.js-checkgroup'),
+                checks = document.querySelectorAll('.js-checkitem');
 
-let radios = document.querySelectorAll('.js-checkgroup'),
-    checks = document.querySelectorAll('.js-checkitem');
-    
-[...radios].forEach(radio => {
-  radio.addEventListener('change', event => {
-    let target = event.target,
-        theme = target.dataset.check
-    
-    if (!theme) {
-      return
-    }
-    [...checks].forEach(chk => {
-      if(chk.classList.contains(theme)) {
-        chk.checked = true
-      } else {
-        chk.checked = false
-      }
-    })
-  })
-})
+            [...radios].forEach(radio => {
+                radio.addEventListener('change', event => {
+                    let target = event.target,
+                        theme = target.dataset.check
+
+                    if (!theme) {
+                        return
+                    }
+                    [...checks].forEach(chk => {
+                        if (chk.classList.contains(theme)) {
+                            chk.checked = true
+                        } else {
+                            chk.checked = false
+                        }
+                    })
+                })
+            })
 
 
         }
-
-</script>
-
+    </script>
+    <style>
+        .groups {
+            display: flex;
+            height: 200px;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .groups>ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            display: flex;
+            margin: auto;
+        }
+        
+        .chechbox-list {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            height: 400px;
+            flex-wrap: wrap;
+        }
+        
+        .chechbox-list__item {
+            margin: 0;
+            padding: 0;
+            display: block;
+            position: relative;
+            height: 30px;
+        }
+        
+        input.js-checkitem+label {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border: 3px solid #555;
+            border-radius: 100%;
+            top: 0;
+            left: 10px;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            -webkit-transition: all ease-out 200ms;
+            transition: all ease-out 200ms;
+            text-indent: 45px;
+            font: normal normal 15px/30px "Helvetica";
+            white-space: nowrap;
+            color: #555;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            line-height: 15px;
+        }
+        
+        input.js-checkitem+label:after {
+            content: "";
+            position: absolute;
+            width: 0px;
+            height: 6px;
+            border-bottom: 3px solid #22b573;
+            border-left: 3px solid #22b573;
+            top: 25%;
+            left: 50%;
+            -webkit-transform-origin: bottom left;
+            transform-origin: bottom left;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            opacity: 0;
+            -webkit-transition: all ease-out 200ms;
+            transition: all ease-out 200ms;
+        }
+        
+        input.js-checkitem:checked+label {
+            border: 3px solid #22b573;
+        }
+        
+        input.js-checkitem:checked+label:after {
+            opacity: 1;
+            width: 18px;
+        }
+        
+        .js-checkitem,
+        .js-checkgroup {
+            display: none;
+        }
+        
+        .js-checkgroup+label {
+            display: block;
+            padding: 10px;
+            background: #efefef;
+            margin: 0 3px;
+            font: normal normal 15px/30px "Helvetica";
+        }
+    </style>
 </head>
+
 <body>
-  <div class="groups">
-  <h2>Группы:</h2>
-
-  <label><input class="js-checkgroup" data-check="drama" type="radio" name="theme">Драма</label>
-  <label><input class="js-checkgroup" data-check="comedy" type="radio" name="theme">Комедия</label>
-  <label><input class="js-checkgroup" data-check="action" type="radio" name="theme">Экшн</label>
-</div>
-
-
-
-<div class="vars">
-  <h2>Список вариантов:</h2>
-
-  <label><input class="js-checkitem drama comedy" type="checkbox"> Фильм 1</label>
-  <label><input class="js-checkitem comedy" type="checkbox"> Фильм 2</label>
-  <label><input class="js-checkitem drama" type="checkbox"> Фильм 3</label>
-  <label><input class="js-checkitem action" type="checkbox"> Фильм 4</label>
-  <label> <input class="js-checkitem action drama comedy" type="checkbox"> Фильм 5</label>
-  <label><input class="js-checkitem action drama" type="checkbox"> Фильм 6</label>
-</div>
+    <div class="groups">
+        <ul>
+            <li><input id="js-checkgroup-01" class="js-checkgroup radio-custom" data-check="one" type="radio" name="theme"><label for="js-checkgroup-01">Коробка</label></li>
+            <li><input id="js-checkgroup-02" class="js-checkgroup radio-custom" data-check="two" type="radio" name="theme"><label for="js-checkgroup-02">Теплый контур</label></li>
+            <li><input id="js-checkgroup-03" class="js-checkgroup radio-custom" data-check="three" type="radio" name="theme"><label for="js-checkgroup-03">Под ключ</label></li>
+        </ul>
+    </div>
 
 
-</body></html>
+
+    <div class="vars">
+        <ul class="chechbox-list">
+            <li class="chechbox-list__item"><input id="js-checkbox-01" class="js-checkitem one two three checkbox-custom" type="checkbox" disabled>
+                <label for="js-checkbox-01">Земляные работы</label></li>
+            <li class="chechbox-list__item"><input id="js-checkbox-02" class="js-checkitem one two three checkbox-custom" type="checkbox" disabled>
+                <label for="js-checkbox-02">Фундамент монолитная плита</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-03" class="js-checkitem three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-03"> Террасы</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-04" class="js-checkitem one two three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-04"> Силовой каркас дома</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-05" class="js-checkitem one two three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-05"> Ветрозащитная пленка</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-06" class="js-checkitem one two three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-06"> Пароизоляционная пленка</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-07" class="js-checkitem one two three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-07"> Утеплитель минеральный 200 мм</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-08" class="js-checkitem one two three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-08"> Плита OSB 12 мм</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-09" class="js-checkitem two three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-09"> Утепление фасадов</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-10" class="js-checkitem two three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-10"> Фасадная штукатурка</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-11" class="js-checkitem one two three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-11"> Межэтажное перекрытие деревянные балки</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-12" class="js-checkitem two three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-12"> Черновые полы OSB 18 мм</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-13" class="js-checkitem one two three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-13"> Плоская кровля</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-14" class="js-checkitem two three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-14"> Лестница строительная</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-15" class="js-checkitem three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-15"> Балкон конструкционный</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-16" class="js-checkitem two three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-16"> Подшивка свесов софиты Docke</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-17" class="js-checkitem two three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-17"> Окна двухкамерные металлопластиковые</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-18" class="js-checkitem three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-18"> Сетки москитные</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-19" class="js-checkitem three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-19"> Откосы</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-20" class="js-checkitem two checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-20"> Входные двери металлические</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-21" class="js-checkitem three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-21"> Входные двери Финляндия</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-22" class="js-checkitem three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-22"> Электрика</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-23" class="js-checkitem three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-23"> Водоснабжение</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-24" class="js-checkitem three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-24"> Канализация</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-25" class="js-checkitem three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-25"> Отопление</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-26" class="js-checkitem one two three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-26"> Доставка материалов</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-27" class="js-checkitem one two three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-27"> Разгрузка материалов</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-28" class="js-checkitem one two three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-28"> Строительная техника</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-29" class="js-checkitem one two three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-29"> Бытовка</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-30" class="js-checkitem one two three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-30"> Монтаж и демонтаж лесов</label>
+            </li>
+            <li class="chechbox-list__item"><input id="js-checkbox-31" class="js-checkitem one two three checkbox-custom" type="checkbox" disabled> <label for="js-checkbox-31"> Уборка участка после строительства</label>
+            </li>
+        </ul>
+
+    </div>
+
+
+</body>
+
+</html>
