@@ -14,3 +14,4 @@
 <p class="no-items">{__("no_items")}</p>
 {/if}
 </div>
+{$product_features|fn_print_r}

@@ -401,9 +401,9 @@ body .ty-tabs__content{
 .cm-image-gallery-wrapper.ty-thumbnails_gallery.ty-inline-block .owl-item{
 	width: auto !important;
 }*/
-.ty-features-list{
+/*.ty-features-list{
     display: none;
-}
+}*/
 
 /*
 ++++++++++++++++++++++++++++
@@ -414,8 +414,6 @@ Tabs
 ++++++++++++++++++++++++++++
 ++++++++++++++++++++++++++++
 */
-
-#product_tab_9, #product_tab_10, #product_tab_11 {position: fixed; }
 
 .menu1 > a,
 .menu1 #product_tab_9:target ~ a:nth-of-type(1),
@@ -437,9 +435,7 @@ Tabs
 
  }
 
-#product_tab_9,
-#product_tab_10,
-#product_tab_11,
+
 .menu1 > div,
 .menu1 #product_tab_9:target ~ div:nth-of-type(1),
 .menu1 #product_tab_10:target ~ div:nth-of-type(1),
@@ -499,4 +495,137 @@ Tabs
 }
 .ty-product-switcher__icon{
     color: #ffffff;
+}
+
+/*
+++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++
+Custom checkboxes & radio
+++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++
+*/
+
+.groups {
+    display: flex;
+    height: 200px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.groups>ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    margin: auto;
+}
+
+.chechbox-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    flex-wrap: wrap;
+}
+
+.chechbox-list__item {
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: relative;
+    height: 30px;
+}
+
+input.js-checkitem+label {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 3px solid #555;
+    border-radius: 100%;
+    top: 0;
+    left: 10px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: all ease-out 200ms;
+    transition: all ease-out 200ms;
+    text-indent: 45px;
+    font: normal normal 15px/30px "Helvetica";
+    white-space: nowrap;
+    color: #555;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    line-height: 15px;
+}
+
+input.js-checkitem+label:after {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 6px;
+    border-bottom: 3px solid #22b573;
+    border-left: 3px solid #22b573;
+    top: 25%;
+    left: 50%;
+    -webkit-transform-origin: bottom left;
+    transform-origin: bottom left;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    opacity: 0;
+    -webkit-transition: all ease-out 200ms;
+    transition: all ease-out 200ms;
+}
+
+input.js-checkitem:checked+label {
+    border: 3px solid #22b573;
+}
+
+input.js-checkitem:checked+label:after {
+    opacity: 1;
+    width: 18px;
+}
+
+.js-checkitem,
+.js-checkgroup {
+    display: none;
+}
+
+.js-checkgroup+label {
+    display: block;
+    padding: 10px;
+    background: #efefef;
+    margin: 0 3px;
+    font: normal normal 15px/30px "Helvetica";
+}
+
+/*
+++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++
+/Custom checkboxes & radio
+++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++
+*/
+
+.ty-wysiwyg-content{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+.totaly-price{
+    padding: 15px;
+    background: #22b573;
+    display: inline-block;
+    position: relative;
+    clear: both;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 900;
 }
