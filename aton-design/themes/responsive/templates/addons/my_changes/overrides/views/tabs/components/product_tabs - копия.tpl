@@ -16,7 +16,7 @@
 
             {if $smarty.capture.$tab_content_capture|trim}
                 {if $product_details_in_tab == "N"}
-                    <a class="tab-list-title" name="{$tab.html_id}" id="{$tab.html_id}" href="#{$tab.html_id}">{$tab.name}</a>
+                    <a class="tab-list-title" name="{$tab.html_id}" id="{$tab.html_id}" href="#{$tab.html_id}"  {if $tab.html_id == 'description'}{else}onclick="changeSingle_{$tab.html_id}({$tab.html_id});{/if}">{$tab.name}</a>
                 {/if}
             {/if}
         {/if}

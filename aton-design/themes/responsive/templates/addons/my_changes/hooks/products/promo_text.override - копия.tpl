@@ -49,15 +49,15 @@
             	{*fn_print_r($summ_kirpich)*}
 
 				<div class="ty-product-block__note">
-					<a class="type-block" href="#product_tab_9">
+					<a class="type-block" href="#product_tab_9" onclick='changeSingle_product_tab_9(product_tab_9);'>
                     	<span class="var-header">{$materials['karkas'][1]}</span>
                     	<span class="var-body" id="price-def-karkas">{$summ_karkas}</span>
                     </a>
-					<a class="type-block" href="#product_tab_10">
+					<a class="type-block" href="#product_tab_10" onclick='changeSingle_product_tab_10(product_tab_10);'>
                     	<span class="var-header">{$materials['gazobeton'][1]}</span>
                     	<span class="var-body" id="price-def-gazobeton">{$summ_gazobeton}</span>
                     </a>
-                    <a class="type-block" href="#product_tab_11">
+                    <a class="type-block" href="#product_tab_11" onclick='changeSingle_product_tab_11(product_tab_11);'>
                     	<span class="var-header">{$materials['kirpich'][1]}</span>
                     	<span class="var-body" id="price-def-kirpich">{$summ_kirpich}</span>
                     </a>
